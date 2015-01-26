@@ -1,5 +1,9 @@
 package expendedora;
 
+import excepciones.CreditoInsuficienteException;
+import excepciones.NoHayCambioException;
+import excepciones.NoHayProductoException;
+
 public class Expendedora {
 
 	// ATRIBUTOS
@@ -54,7 +58,14 @@ public class Expendedora {
 	}
 	
 	public double comprarProducto() throws NoHayCambioException, NoHayProductoException, CreditoInsuficienteException{
-		
+		if (cambio < precio) throw new NoHayCambioException();
+		else {
+			if (stock <= 0) throw new NoHayProductoException();
+			else {
+				if (credito < precio) throw new CreditoInsuficienteException();
+				else return credito-precio;
+			}
+		}
 	}
 	
 }
