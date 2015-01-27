@@ -14,7 +14,11 @@ public class Expendedora {
 	// CONSTRUCTOR
 	
 	public Expendedora (double cambio, int stock, double precio){
-		
+		this.cambio = cambio;
+		this.stock = stock;
+		this.precio = precio;
+		credito = 0;
+		recaudacion = 0;
 	}
 	
 	// CONSULTORES
@@ -49,12 +53,21 @@ public class Expendedora {
 				"\nRecaudacion: " + recaudacion + " euros ";
 	}
 	
+	public double redondear(double num){
+		num = Math.round(num*100)/100.0;
+		return num;
+	}
+	
 	public void introducirDinero (double importe){
 		credito += importe;
+		credito = redondear(credito);
 	}
 	
 	public double solicitarDevolucion(){
-		return credito;
+		double cambio = credito;
+		credito = 0;
+		cambio = redondear(cambio);
+		return cambio;
 	}
 	
 	public double comprarProducto() throws NoHayCambioException, NoHayProductoException, CreditoInsuficienteException{
@@ -63,7 +76,14 @@ public class Expendedora {
 			if (stock <= 0) throw new NoHayProductoException();
 			else {
 				if (credito < precio) throw new CreditoInsuficienteException();
-				else return credito-precio;
+				else {
+					recaudacion += precio;
+					recaudacion = redondear(recaudacion);
+					double cambio = credito-precio;
+					cambio = redondear(cambio);
+					credito = 0;
+					return cambio;
+				}
 			}
 		}
 	}
