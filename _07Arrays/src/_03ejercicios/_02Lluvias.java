@@ -15,6 +15,13 @@ public class _02Lluvias {
 			
 			
 			
+			int primerDiaDeLluviaX = posPrimero(19,lluvias);
+			if(primerDiaDeLluviaX == -1) System.out.println("Ningun dia llovio 19 litros");
+			else System.out.println("El primer dia que llovio 19 litros fue el: " + (primerDiaDeLluviaX + 1));
+			
+			int ultimoDiaDeLluviaX = posUltimo(19,lluvias);
+			// FALTA POR ACABAR (EJERCICIO 8) !!!!!!!!!!
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra el fichero");
 			e.printStackTrace();
@@ -105,5 +112,28 @@ public class _02Lluvias {
 		return cont;
 	}
 	
+	//8
+	
+	public static int posPrimero (double litros, double v[]){
+		boolean encontrado = false;
+		int i=0;
+		while (i < v.length && !encontrado){
+			if (v[i] == litros) encontrado = true;
+			else i++;
+		}
+		if (encontrado) return i;
+		else return -1;
+	}
+	
+	public static int posUltimo (double litros, double v[]){
+		boolean encontrado = false;
+		int i=0;
+		while (i < v.length && !encontrado){
+			if (v[i] == litros) encontrado = true;
+			else i++;
+		}
+		if (encontrado) return i;
+		else return -1;
+	}
 	
 }
