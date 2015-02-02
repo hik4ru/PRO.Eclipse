@@ -82,6 +82,8 @@ public class Expendedora {
 					double cambio = credito-precio;
 					cambio = redondear(cambio);
 					credito = 0;
+					stock--;
+					this.cambio -= cambio;
 					return cambio;
 				}
 			}
