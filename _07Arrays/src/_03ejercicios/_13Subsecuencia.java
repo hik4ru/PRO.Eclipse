@@ -7,7 +7,9 @@ public class _13Subsecuencia {
 		int v1[]={23,8,12,6,7,9,10,11,2};
 		int v2[]={1,2,3};
 		
+		System.out.println(v1.toString());
 		System.out.println(Subsecuencia(v1));
+		System.out.println(v2.toString());
 		System.out.println(Subsecuencia(v2));
 	}
 	
@@ -21,7 +23,7 @@ public class _13Subsecuencia {
 			i++;
 		}
 		
-		return i;
+		return i-1;
 	}
 	
 }
