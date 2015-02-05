@@ -42,7 +42,7 @@ public class _11ValorPar {
 		else
 			return false;
 		
-		//SI FUNCIONA
+		//NO FUNCIONA -- daria excepcion al comprobar la posicion de la array antes de la longitud del array
 	}
 
 	public static boolean haypares4(int v[]) {
@@ -56,7 +56,7 @@ public class _11ValorPar {
 		}
 		return encontrado;
 		
-		//NO FUNCIONA
+		//NO FUNCIONA -- "i <= v.length"
 	}
 
 	public static boolean haypares5(int v[]) {
@@ -81,7 +81,7 @@ public class _11ValorPar {
 				return false;
 		}
 		
-		//NO FUCNIONA
+		//NO FUNCIONA -- solo mira la primera posicion del array
 	}
 
 	public static boolean haypares7(int v[]) {
@@ -93,7 +93,7 @@ public class _11ValorPar {
 		}
 		return false;
 		
-		//SI FUCNIONA
+		//SI FUNCIONA
 	}
 
 }
