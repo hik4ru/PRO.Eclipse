@@ -46,15 +46,16 @@ public class GestionReservas {
 	
 	public static void reservar(ListaReservas l, Scanner tec){
 		System.out.println("NIF: ");
+		tec.nextLine();
 		String nif = tec.nextLine();
 		System.out.println("Nombre: ");
 		String nombre = tec.nextLine();
 		System.out.println("Telefono: ");
 		String tel = tec.nextLine();
 		System.out.println("Codigo libro: ");
-		String cod = tec.nextLine();
+		int cod = tec.nextInt();
 		System.out.println("Numero de ejemplares: ");
-		String ejem = tec.nextLine();
+		int ejem = tec.nextInt();
 		
 		try{
 			l.reservar(nif, nombre, tel, cod, ejem);
@@ -65,7 +66,31 @@ public class GestionReservas {
 		}
 	}
 	
-	public static void cancelar(ListaReservas l){
+	public static void cancelar(ListaReservas l, Scanner tec){
+		System.out.println("NIF: ");
+		tec.nextLine();
+		String nif = tec.nextLine();
+		System.out.println("Codigo libro: ");
+		int cod = tec.nextInt();
 		
+		try{
+			l.cancelar(nif,cod);
+		} catch (ElementoNoEncontradoException e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void pedido(ListaReservas l, Scanner tec){
+		System.out.println("Codigo libro: ");
+		int cod = tec.nextInt();
+		
+		System.out.println("Han sido reservados " + l.numEjemplaresReservadosLibro(cod) + " ejemplares de ese libro");
+	}
+	
+	public static void recepcion(ListaReservas l, Scanner tec){
+		System.out.println("Codigo libro: ");
+		int cod = tec.nextInt();
+		
+		l.reservasLibro(cod);
 	}
 }
