@@ -28,7 +28,23 @@ public class ListaReservas {
 		lista[numReservas] = r;
 		numReservas++;
 		
+		//o bien...
 		//lista[numReservas++] = r;
+	}
+	
+	public void cancelar(String nif, int libro) throws ElementoNoEncontradoException {
+		boolean enc = false;
+		for(int i = 0; i < numReservas && !enc; i++) {
+			if(lista[i].getNif().equals(nif) && lista[i].getCodigo() == libro){
+				enc = true;
+				//Elimino la reserva de la posicion i
+				for(int j = i; j<numReservas-1; j++){
+					lista[j] = lista[j+1];
+				}
+				numReservas--;
+			}
+		}
+		if(!enc) throw new ElementoNoEncontradoException("La reserva no existe");
 	}
 	
 	@Override
@@ -38,5 +54,25 @@ public class ListaReservas {
 			res += lista[i].toString() + "\n";
 		}
 		return res;
+	}
+	
+	public int numEjemplaresReservadosLibro(int codigo){
+		int cont = 0;
+		for (int i = 0; i < numReservas; i++){
+			if (lista[i].getCodigo() == codigo)
+				cont += lista[i].getEjemplares();
+		}
+		return cont;
+	}
+	
+	public void reservasLibro(int codigo){ // POR TERMINAR ----------------------------
+		int cont = 0;
+		for (int i = 0; i < numReservas; i++){
+			if(lista[i].getCodigo() == codigo){
+				System.out.println("Nombre: " + lista[i].getNombre());
+				System.out.println("Telefono: " + lista[i].getTel());
+				System.out.println("-----");
+			}
+		}
 	}
 }
