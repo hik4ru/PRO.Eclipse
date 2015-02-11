@@ -65,8 +65,7 @@ public class ListaReservas {
 		return cont;
 	}
 	
-	public void reservasLibro(int codigo){ // POR TERMINAR ----------------------------
-		int cont = 0;
+	public void reservasLibro(int codigo){
 		for (int i = 0; i < numReservas; i++){
 			if(lista[i].getCodigo() == codigo){
 				System.out.println("Nombre: " + lista[i].getNombre());
