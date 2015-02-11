@@ -39,11 +39,11 @@ public class _04Busquedas {
 		boolean picos = false;
 		int i = 1;
 		
-		while (i<v.length && picos){
+		while (i<v.length && !picos){
 			if (v[i] < v[i-1]) picos = true;
 			i++;
-		} 
+		}
 		
-		
+		return picos;
 	}
 }

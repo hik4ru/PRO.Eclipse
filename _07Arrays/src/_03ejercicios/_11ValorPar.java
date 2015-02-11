@@ -72,17 +72,17 @@ public class _11ValorPar {
 		//SI FUNCIONA
 	}
 
-	public static boolean haypares6(int v[]) {
-		int i = 0;
-		while (i < v.length) {
-			if (v[i] % 2 == 0)
-				return true;
-			else
-				return false;
-		}
-		
-		//NO FUNCIONA -- solo mira la primera posicion del array
-	}
+//	public static boolean haypares6(int v[]) {
+//		int i = 0;
+//		while (i < v.length) {
+//			if (v[i] % 2 == 0)
+//				return true;
+//			else
+//				return false;
+//		}
+//		
+//		//NO FUNCIONA -- solo mira la primera posicion del array
+//	}
 
 	public static boolean haypares7(int v[]) {
 		int i = 0;
