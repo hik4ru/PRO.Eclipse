@@ -100,5 +100,48 @@ public class _15Notas {
 		}
 		
 	}
+	
+	public static int asignaturaMasFacil (double n[][]){
+		double mediaMax = -1;
+		int asigMasFacil = -1;
+		for (int j = 0; j < n[0].length; j++){
+			double suma = 0;
+			for (int i = 0; i < n.length; i++){
+				suma += n[i][j];
+			}
+			double media = suma / n.length;
+			if(media > mediaMax){
+				mediaMax = media;
+				asigMasFacil = j;
+			}
+		}
+		
+		return asigMasFacil;
+	}
+	
+	public static boolean alguienSuspendeTodo (double n[][]){
+		boolean enc = false;
+		
+		//busqueda por filas
+		for (int i = 0; i < n.length && !enc; i++){
+			boolean algoAprobado = false;
+			for (int j = 0; j < n[i].length && !algoAprobado; j++){
+				if (n[i][j] >= 5) algoAprobado = true;
+			}
+		}
+		
+		return enc;
+	}
+	
+	public static boolean asignaturaSuspendidaPorTodos (double n[][]){
+		
+		for (int j = 0; j < n[0].length; j++){
+			boolean alguienAprueba = false;
+			for (int i = 0; i < n.length && !alguienAprueba; i++) {
+				if (n[i][j] >= 5) alguienAprueba = true;
+			}
+		}
+		
+	}
 
 }
