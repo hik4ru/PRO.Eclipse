@@ -135,13 +135,17 @@ public class _15Notas {
 	
 	public static boolean asignaturaSuspendidaPorTodos (double n[][]){
 		
+		boolean alguienAprueba=false;
+		
 		for (int j = 0; j < n[0].length; j++){
-			boolean alguienAprueba = false;
+			alguienAprueba = false;
 			for (int i = 0; i < n.length && !alguienAprueba; i++) {
 				if (n[i][j] >= 5) alguienAprueba = true;
 			}
 		}
 		
+		if (alguienAprueba) return false;
+		else return true;
 	}
 
 }

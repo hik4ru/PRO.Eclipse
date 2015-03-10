@@ -50,22 +50,26 @@ public class Juego {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + anyo;
-		result = prime * result
-				+ ((fabricante == null) ? 0 : fabricante.hashCode());
-		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
-		return result;
-	}
-
-	@Override
 	public boolean equals(Object o) {
-		
-		
-		
+		if (o == null) return false;
+		else if (this == o) return true;
+		else if (!(o instanceof Juego)) return false;
+		else {
+			Juego j = (Juego) o;
+			return titulo.equals(j.titulo) && fabricante.equals(j.fabricante) && anyo == j.anyo;
+		}
 	}
 
-	
+	public int compareTo(Object o ){
+		Juego j = (Juego) o;
+		int compTitulo = titulo.compareTo(j.titulo);
+		if(compTitulo != 0) return compTitulo;
+		
+		int compFab = fabricante.compareTo(j.fabricante);
+		if(compFab != 0) return compTitulo;
+		
+		if(anyo < j.anyo) return -1;
+		else if(anyo > j.anyo) return 1;
+		else return 0;
+	}
 }

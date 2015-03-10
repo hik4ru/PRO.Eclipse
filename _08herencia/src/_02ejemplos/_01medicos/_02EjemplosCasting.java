@@ -15,7 +15,7 @@ public class _02EjemplosCasting {
 	 * Pero no hacen magia: pueden dar error de ejecucion
 	 * aunque compilen bien
 	 */
-	MedicoDeCabecera mc = (MedicoDeCabecera) o;
-	String s = (String) o;
-	Scanner e = (Scanner) o;
+//	MedicoDeCabecera mc = (MedicoDeCabecera) o;
+//	String s = (String) o;
+//	Scanner e = (Scanner) o;
 }
